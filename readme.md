@@ -1,6 +1,5 @@
 # Autogen Crash Course Projects
 
-![Autogen Banner](image.png)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![AutoGen](https://img.shields.io/badge/AutoGen-latest-green.svg)](https://github.com/microsoft/autogen)
