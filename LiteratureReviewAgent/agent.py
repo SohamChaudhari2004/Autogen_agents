@@ -56,7 +56,7 @@ arxiv_search_tool = FunctionTool(
 # =========================================
 # TEAM BUILDING
 # ==========================================
-gemini_api_key = "AIzaSyAwQvtrLDWrHvI6HIbwgkZYDTTdP1c8mQs"
+gemini_api_key = os.getenv('GEMINI_API_KEY')
 
 model_client = OpenAIChatCompletionClient(
     model="gemini-2.5-pro",
