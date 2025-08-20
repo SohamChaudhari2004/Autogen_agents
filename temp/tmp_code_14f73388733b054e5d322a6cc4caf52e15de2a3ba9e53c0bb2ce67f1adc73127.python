@@ -1,0 +1,76 @@
+class Solution:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
+        """
+        Given an m x n matrix, return all elements of the matrix in spiral order.
+        """
+        if not matrix or not matrix[0]:
+            return []
+
+        rows, cols = len(matrix), len(matrix[0])
+        top, bottom, left, right = 0, rows - 1, 0, cols - 1
+        result = []
+
+        while top <= bottom and left <= right:
+            # Traverse from left to right along the top row
+            for i in range(left, right + 1):
+                result.append(matrix[top][i])
+            top += 1
+
+            # Traverse from top to bottom along the right column
+            for i in range(top, bottom + 1):
+                result.append(matrix[i][right])
+            right -= 1
+
+            # Check if there's still a valid row to traverse
+            if top <= bottom:
+                # Traverse from right to left along the bottom row
+                for i in range(right, left - 1, -1):
+                    result.append(matrix[bottom][i])
+                bottom -= 1
+
+            # Check if there's still a valid column to traverse
+            if left <= right:
+                # Traverse from bottom to top along the left column
+                for i in range(bottom, top - 1, -1):
+                    result.append(matrix[i][left])
+                left += 1
+
+        return result
+
+# --- Test Cases ---
+solver = Solution()
+
+# Test Case 1: 3x3 matrix (from example 1)
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+output1 = solver.spiralOrder(matrix1)
+print(f"Test Case 1: Input: {matrix1}, Output: {output1}")
+print(f"Expected: {[1, 2, 3, 6, 9, 8, 7, 4, 5]}")
+print("-" * 20)
+
+# Test Case 2: 3x4 matrix (from example 2)
+matrix2 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+output2 = solver.spiralOrder(matrix2)
+print(f"Test Case 2: Input: {matrix2}, Output: {output2}")
+print(f"Expected: {[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]}")
+print("-" * 20)
+
+# Test Case 3: Single row matrix
+matrix3 = [[1, 2, 3, 4, 5]]
+output3 = solver.spiralOrder(matrix3)
+print(f"Test Case 3: Input: {matrix3}, Output: {output3}")
+print(f"Expected: {[1, 2, 3, 4, 5]}")
+print("-" * 20)
+
+# Test Case 4: Single column matrix
+matrix4 = [[1], [2], [3], [4]]
+output4 = solver.spiralOrder(matrix4)
+print(f"Test Case 4: Input: {matrix4}, Output: {output4}")
+print(f"Expected: {[1, 2, 3, 4]}")
+print("-" * 20)
+
+# Test Case 5: 2x2 matrix
+matrix5 = [[1, 2], [3, 4]]
+output5 = solver.spiralOrder(matrix5)
+print(f"Test Case 5: Input: {matrix5}, Output: {output5}")
+print(f"Expected: {[1, 2, 4, 3]}")
+print("-" * 20)

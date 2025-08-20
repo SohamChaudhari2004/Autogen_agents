@@ -1,0 +1,10 @@
+autogenstudio
+autogen-agentchat
+autogen-ext
+autogen-core
+autogen-ext[openai]
+arxiv
+python-dotenv
+asyncio
+streamlit
+autogen-ext[docker]
